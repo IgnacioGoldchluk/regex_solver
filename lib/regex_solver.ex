@@ -3,11 +3,14 @@ defmodule RegexSolver do
   Regex operations using Rust's [RegexSolver](https://github.com/RegexSolver/regexsolver)
   """
   version = Mix.Project.config()[:version]
+  github_url = Mix.Project.config()[:package][:links]["GitHub"]
 
   use RustlerPrecompiled,
     otp_app: :regex_solver,
-    base_url: "https://github.com/IgnacioGoldchluk/regex_solver/releases/download/v#{version}",
+    base_url: "#{github_url}/releases/download/v#{version}",
     force_build: System.get_env("RUSTLER_BUILD") in ["1", "true"],
+    targets:
+      Enum.uniq(["aarch64-unknown-linux-musl" | RustlerPrecompiled.Config.default_targets()]),
     version: version
 
   @type op_error :: :invalid_regex | :empty_intersection

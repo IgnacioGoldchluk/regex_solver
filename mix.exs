@@ -2,7 +2,7 @@ defmodule RegexSolver.MixProject do
   use Mix.Project
 
   @version "0.1.0"
-  @source_url "https://github.com/IgnacioGoldchluk/regex-solver"
+  @source_url "https://github.com/IgnacioGoldchluk/regex_solver"
 
   def project do
     [
@@ -48,9 +48,7 @@ defmodule RegexSolver.MixProject do
       links: %{"GitHub" => @source_url},
       files: [
         "lib",
-        "native/regex_solver/.cargo",
-        "native/regex_solver/src",
-        "native/regex_solver/Cargo*",
+        "native",
         "checksum-*.exs",
         "mix.exs"
       ]
