@@ -2,7 +2,13 @@ defmodule RegexSolver do
   @moduledoc """
   Regex operations using Rust's [RegexSolver](https://github.com/RegexSolver/regexsolver)
   """
-  use Rustler, otp_app: :regex_solver
+  version = Mix.Project.config()[:version]
+
+  use RustlerPrecompiled,
+    otp_app: :regex_solver,
+    base_url: "https://github.com/IgnacioGoldchluk/regex_solver/releases/download/v#{version}",
+    force_build: System.get_env("RUSTLER_BUILD") in ["1", "true"],
+    version: version
 
   @type op_error :: :invalid_regex | :empty_intersection
 
@@ -25,9 +31,11 @@ defmodule RegexSolver do
       iex> RegexSolver.intersect("a)", "a|b|c")
       {:error, "invalid regex: a)"}
   """
-  @spec intersect(Regex.t() | String.t(), Regex.t() | String.t()) :: {:ok, String.t()} | {:error, op_error()}
+  @spec intersect(Regex.t() | String.t(), Regex.t() | String.t()) ::
+          {:ok, String.t()} | {:error, op_error()}
   def intersect(%Regex{} = re1, re2), do: intersect(re1.source, re2)
   def intersect(re1, %Regex{} = re2), do: intersect(re1, re2.source)
+
   def intersect(re1, re2) when is_binary(re1) and is_binary(re2) do
     case intersection(re1, re2) do
       {:ok, "[]"} -> {:error, :empty_intersection}

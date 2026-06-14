@@ -25,3 +25,4 @@ regex_solver-*.tar
 
 # Rust binary artifacts
 /target/
+/priv/native/regex_solver.so
