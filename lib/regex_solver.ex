@@ -10,7 +10,8 @@ defmodule RegexSolver do
     base_url: "#{github_url}/releases/download/v-#{version}",
     force_build: System.get_env("RUSTLER_BUILD") in ["1", "true"],
     targets:
-      Enum.uniq(["aarch64-unknown-linux-musl" | RustlerPrecompiled.Config.default_targets()]),
+      Enum.uniq(["aarch64-unknown-linux-musl" | RustlerPrecompiled.Config.default_targets()]) --
+        ["riscv64gc-unknown-linux-gnu"],
     version: version
 
   @type op_error :: :invalid_regex | :empty_intersection
