@@ -48,7 +48,10 @@ defmodule RegexSolver.MixProject do
       links: %{"GitHub" => @source_url},
       files: [
         "lib",
-        "native",
+        "native/regex_solver/.cargo/config.toml",
+        "native/regex_solver/src",
+        "native/regex_solver/Cargo.toml",
+        "native/regex_solver/Cargo.lock",
         "checksum-*.exs",
         "mix.exs"
       ]
