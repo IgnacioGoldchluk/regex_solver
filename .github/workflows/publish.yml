@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Publish
     env:
+      # Set RUSTLER_BUILD so we can fetch the dependencies and generate the checksum file
+      RUSTLER_BUILD: "1"
       HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
     steps:
       - name: Checkout code
