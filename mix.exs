@@ -53,7 +53,9 @@ defmodule RegexSolver.MixProject do
         "native/regex_solver/Cargo.toml",
         "native/regex_solver/Cargo.lock",
         "checksum-*.exs",
-        "mix.exs"
+        "mix.exs",
+        "README.md",
+        "CHANGELOG.md"
       ]
     ]
   end

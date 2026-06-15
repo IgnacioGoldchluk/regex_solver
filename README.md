@@ -1,3 +1,9 @@
+[![CI](https://github.com/IgnacioGoldchluk/regex_solver/actions/workflows/ci.yml/badge.svg)](https://github.com/IgnacioGoldchluk/regex_solver/actions/workflows/ci.yml)
+[![License](https://img.shields.io/hexpm/l/regex_solver
+)](https://github.com/IgnacioGoldchluk/regex_solver/blob/main/LICENSE.md)
+[![Version](https://img.shields.io/hexpm/v/regex_solver.svg)](https://hex.pm/packages/regex_solver)
+[![Docs](https://img.shields.io/badge/documentation-gray.svg)](https://regex-solver.hexdocs.pm)
+
 # RegexSolver
 
 Regex operations using Rust's [RegexSolver](https://github.com/RegexSolver/regexsolver)
